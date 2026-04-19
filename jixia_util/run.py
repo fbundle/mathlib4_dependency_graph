@@ -99,7 +99,7 @@ class LeanProject:
         :param output_dir: path of the directory where the output files will be placed, relative to `root`
         """
         self.root = Path(root)
-        self.output_dir = self.root / output_dir
+        self.output_dir = Path(output_dir)
 
     def path_of_module(
         self, module_name: LeanName, base_dir: Optional[AnyPath] = None
