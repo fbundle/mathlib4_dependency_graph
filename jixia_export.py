@@ -9,4 +9,6 @@ project = jixia.LeanProject(
     output_dir=".jixia",
 )
 
-project.batch_run_jixia()
+project.batch_run_jixia(
+    prefixes=["Mathlib"]
+)
