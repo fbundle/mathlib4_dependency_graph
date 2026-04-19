@@ -8,6 +8,8 @@ from string import Template
 from subprocess import CompletedProcess
 from typing import Iterable, Optional, TypeVar
 
+from tqdm import tqdm
+
 from .structs import (
     ALL_PLUGINS,
     AnyPath,
@@ -167,7 +169,7 @@ class LeanProject:
                 ): m
                 for m in modules
             }
-            for f in concurrent.futures.as_completed(futures):
+            for f in tqdm(concurrent.futures.as_completed(futures), total=len(modules), desc="extracting ..."):
                 m = futures[f]
                 try:
                     r: CompletedProcess | None = f.result()
