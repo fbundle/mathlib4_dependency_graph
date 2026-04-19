@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# auto stop if fail
+set -e
+
+work_dir=$(pwd)
+
+data_dir="$work_dir/data"
+jixia_dir="$work_dir/jixia"
+jixia="$work_dir/jixia/.lake/build/bin/jixia"
+mathlib_dir="$work_dir/mathlib4"
+
+# build mathlib first
+cd $mathlib_dir && lake exe cache get && lake build
+
+# jixia must use the same lean version with mathlib
+cp $mathlib_dir/lean-toolchain $jixia_dir/
+cd $jixia_dir && lake build
+
+cd $work_dir
