@@ -21,4 +21,5 @@ project = jixia.LeanProject(
 
 project.batch_run_jixia(
     prefixes=[to_jixia_module(MATHLIB_MODULE)], 
+    timeout=1800,
 )
