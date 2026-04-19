@@ -2,8 +2,6 @@
 
 work_dir=$(pwd)
 
-
-
 jixia_dir="$work_dir/jixia"
 jixia="$work_dir/jixia/.lake/build/bin/jixia"
 mathlib_dir="$work_dir/mathlib4"
@@ -20,3 +18,5 @@ cd $mathlib_dir && lake env $jixia \
 	-l $module.lines.json \
 	$module.lean
 
+
+cd $work_dir
