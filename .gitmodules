@@ -1,3 +1,7 @@
 [submodule "jixia"]
 	path = jixia
 	url = https://github.com/frenzymath/jixia
+
+[submodule "mathlib4"]
+	path = mathlib4
+	url = https://github.com/leanprover-community/mathlib4
