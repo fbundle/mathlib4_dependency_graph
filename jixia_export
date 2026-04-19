@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+work_dir=$(pwd)
+jixia="$work_dir/jixia/.lake/build/bin/jixia"
+mathlib_dir="$work_dir/mathlib4"
+module="Mathlib"
+
+
+cd $mathlib_dir && lake env $jixia \
+	-d $module.decl.json \
+	-s $module.sym.json \
+	-e $module.elab.json \
+	-l $module.lines.json \
+	$module.lean
+cd $work_dir
