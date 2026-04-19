@@ -4,9 +4,11 @@ import sys
 from huggingface_hub import login, upload_large_folder
 from dotenv import load_dotenv
 
+OUTPUT_DIR = "output/mathlib4_dependency_graph"
+
 def upload(output_dir: str):
     output_dir = os.path.abspath(output_dir)
-    
+
     load_dotenv()
     hf_user = os.environ.get("HF_USER", None)
     if hf_user is None:
@@ -24,4 +26,4 @@ def upload(output_dir: str):
 
 
 if __name__ == "__main__":
-    upload(sys.argv[1])
+    upload(OUTPUT_DIR)

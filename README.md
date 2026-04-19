@@ -4,8 +4,10 @@ make dependency graph for [mathlib4](https://github.com/leanprover-community/mat
 
 ## HOW TO
 
-0. Check out your favorite mathlib version
+0. Clone the repository at [https://github.com/fbundle/mathlib4_dependency_graph](https://github.com/fbundle/mathlib4_dependency_graph)
 
-1. Use `build` script to build mathlib and jixia
+1. Check out your favorite mathlib version
 
-2. Extract dependency graph using `jixia_export.py`
+2. Use `build` script to build mathlib and jixia
+
+3. Extract dependency graph using `jixia_export.py`
