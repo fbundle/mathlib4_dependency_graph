@@ -20,7 +20,7 @@ def upload(output_dir: str):
     upload_large_folder(
         folder_path=output_dir,
         repo_id=repo_id,
-        repo_type="model",
+        repo_type="dataset",
         # ignore_patterns=["checkpoint-*"],
     )
 
