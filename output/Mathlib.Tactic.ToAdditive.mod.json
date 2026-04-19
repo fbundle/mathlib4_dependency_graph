@@ -1,1 +1,0 @@
-{"docstring":["## `@[to_additive]` attributes for basic types\n"],"imports":[["Init"],["Mathlib","Tactic","Translate","ToAdditive"]]}

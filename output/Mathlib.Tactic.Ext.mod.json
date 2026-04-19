@@ -1,1 +1,0 @@
-{"docstring":["# Documentation for `ext` tactic\n\nThis file contains a library note on the use of the `ext` tactic and `@[ext]` attribute.\n"],"imports":[["Init"],["Mathlib","Init"],["Batteries","Util","LibraryNote"]]}

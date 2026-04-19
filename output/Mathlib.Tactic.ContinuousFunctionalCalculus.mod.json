@@ -1,1 +1,0 @@
-{"docstring":["# Tactics for the continuous functional calculus\n\nAt the moment, these tactics are just wrappers, but potentially they could be more sophisticated.\n"],"imports":[["Init"],["Aesop"],["Mathlib","Tactic","FunProp"]]}

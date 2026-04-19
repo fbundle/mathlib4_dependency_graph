@@ -1,1 +1,0 @@
-{"docstring":["# The `by_contra` tactic\n\nThe `by_contra!` tactic is a variant of the `by_contra` tactic, for proofs of contradiction.\n"],"imports":[["Init"],["Batteries","Tactic","Init"],["Mathlib","Tactic","Push"]]}

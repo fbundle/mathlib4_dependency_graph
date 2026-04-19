@@ -1,1 +1,0 @@
-{"docstring":["## Dependent rewrite tactic "],"imports":[["Init"],["Lean","Elab","Tactic","Simp"],["Lean","Elab","Tactic","Conv","Basic"],["Lean","Elab","Tactic","Rewrite"],["Mathlib","Init"],["Lean","Elab","Tactic","Config"]]}

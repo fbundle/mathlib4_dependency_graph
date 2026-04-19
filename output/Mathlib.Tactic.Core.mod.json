@@ -1,1 +1,0 @@
-{"docstring":["# Generally useful tactics.\n\n"],"imports":[["Init"],["Lean","Elab","PreDefinition","Basic"],["Lean","Elab","Tactic","ElabTerm"],["Lean","Meta","Tactic","Intro"],["Batteries","Lean","Expr"],["Mathlib","Init"]]}

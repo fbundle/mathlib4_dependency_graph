@@ -1,1 +1,0 @@
-{"docstring":["Defines the `inhabit α` tactic, which tries to construct an `Inhabited α` instance,\nconstructively or otherwise.\n"],"imports":[["Init"],["Lean","Elab","Tactic","ElabTerm"],["Mathlib","Init"]]}

@@ -1,1 +1,0 @@
-{"docstring":["# The `without_cdot()` elaborator\n"],"imports":[["Init"],["Lean","Elab","SyntheticMVars"],["Mathlib","Init"]]}

@@ -1,1 +1,0 @@
-{"docstring":["The `tauto` tactic.\n"],"imports":[["Init"],["Mathlib","Logic","Basic"],["Qq"],["Mathlib","Lean","Meta"],["Mathlib","Tactic","CasesM"],["Mathlib","Tactic","Core"]]}

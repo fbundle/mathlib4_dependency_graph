@@ -1,1 +1,0 @@
-{"docstring":["# The `congrm` tactic\n\nThe `congrm` tactic (\"`congr` with matching\")\nis a convenient frontend for `congr(...)` congruence quotations.\nRoughly, `congrm e` is `refine congr(e')`, where `e'` is `e` with every `?m` placeholder\nreplaced by `$(?m)`.\n"],"imports":[["Init"],["Lean","Meta","Tactic","Rfl"],["Mathlib","Tactic","TermCongr"]]}

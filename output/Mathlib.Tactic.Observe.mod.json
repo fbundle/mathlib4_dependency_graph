@@ -1,1 +1,0 @@
-{"docstring":["# The `observe` tactic.\n\n`observe hp : p` asserts the proposition `p`, and tries to prove it using `exact?`.\n"],"imports":[["Init"],["Mathlib","Init"],["Lean","Meta","Tactic","TryThis"],["Lean","Elab","Tactic","ElabTerm"],["Lean","Meta","Tactic","LibrarySearch"]]}

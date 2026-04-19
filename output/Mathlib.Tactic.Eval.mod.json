@@ -1,1 +1,0 @@
-{"docstring":["# The `eval%` term elaborator\n\nThis file provides the `eval% x` term elaborator, which evaluates the constant `x` at compile-time\nin the interpreter, and interpolates it into the expression.\n"],"imports":[["Init"],["Mathlib","Init"],["Qq","Macro"]]}

@@ -1,1 +1,0 @@
-{"docstring":["A tactic stub file for the `guard_hyp_nums` tactic.\n"],"imports":[["Init"],["Mathlib","Init"],["Lean","Elab","Tactic","Basic"]]}
