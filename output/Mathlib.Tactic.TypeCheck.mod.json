@@ -1,0 +1,1 @@
+{"docstring":["# The `type_check` tactic\nDefine the `type_check` tactic: it type checks a given expression, and traces its type.\n"],"imports":[["Init"],["Mathlib","Init"],["Lean","Elab","Tactic","Basic"],["Lean","Elab","SyntheticMVars"]]}

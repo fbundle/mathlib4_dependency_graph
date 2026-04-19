@@ -1,0 +1,1 @@
+{"docstring":["Tactic to split if-then-else expressions.\n"],"imports":[["Init"],["Lean","Elab","Tactic","Location"],["Lean","Meta","Tactic","SplitIf"],["Lean","Elab","Tactic","Simp"],["Mathlib","Tactic","Core"]]}

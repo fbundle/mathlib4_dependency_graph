@@ -1,0 +1,1 @@
+{"docstring":["# The `clear*` tactic\n\nThis file provides a variant of the `clear` tactic, which clears all hypotheses it can\nbesides a provided list.\n"],"imports":[["Init"],["Mathlib","Init"],["Lean","Elab","Tactic","ElabTerm"]]}

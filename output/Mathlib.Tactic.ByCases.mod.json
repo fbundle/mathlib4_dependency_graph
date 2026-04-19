@@ -1,0 +1,1 @@
+{"docstring":["# The `by_cases!` tactic\n\nThe `by_cases!` tactic is a variant of the `by_cases` tactic that also calls `push Not`\non the generated hypothesis that is a negation.\n"],"imports":[["Init"],["Batteries","Tactic","PermuteGoals"],["Mathlib","Tactic","Push"]]}

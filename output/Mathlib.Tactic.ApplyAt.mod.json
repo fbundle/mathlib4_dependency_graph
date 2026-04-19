@@ -1,0 +1,1 @@
+{"docstring":["# Apply at\n\nA tactic for applying functions at hypotheses.\n"],"imports":[["Init"],["Lean","Elab","Tactic","ElabTerm"],["Mathlib","Lean","Meta","Basic"],["Mathlib","Init"]]}

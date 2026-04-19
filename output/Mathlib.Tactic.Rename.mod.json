@@ -1,0 +1,1 @@
+{"docstring":["# The `rename'` tactic\nThe `rename'` tactic renames one or several hypotheses.\n"],"imports":[["Init"],["Lean","Elab","Tactic","ElabTerm"],["Mathlib","Init"]]}

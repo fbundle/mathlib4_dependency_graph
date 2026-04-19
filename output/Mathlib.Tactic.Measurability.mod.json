@@ -1,0 +1,1 @@
+{"docstring":["# Measurability\n\nWe define the `measurability` tactic using `aesop`. "],"imports":[["Init"],["Mathlib","Tactic","FunProp","Decl"],["Mathlib","Tactic","Measurability","Init"]]}

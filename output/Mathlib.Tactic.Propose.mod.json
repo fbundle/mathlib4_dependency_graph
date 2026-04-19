@@ -1,0 +1,1 @@
+{"docstring":[],"imports":[["Init"],["Lean","Meta","Tactic","TryThis"],["Mathlib","Lean","Expr","Basic"],["Mathlib","Tactic","Linter","DeprecatedModule"],["Mathlib","Init"]]}

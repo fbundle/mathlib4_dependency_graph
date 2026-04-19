@@ -1,0 +1,1 @@
+{"docstring":["# The `recover` tactic modifier\n\nThis defines the `recover` tactic modifier, which can be used to debug cases where goals\nare not closed correctly. `recover tacs` for a tactic (or tactic sequence) `tacs`\napplies the tactics and then adds goals\nthat are not closed, starting from the original goal.\n"],"imports":[["Init"],["Mathlib","Init"]]}

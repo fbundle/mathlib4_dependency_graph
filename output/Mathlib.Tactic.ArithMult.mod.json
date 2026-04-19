@@ -1,0 +1,1 @@
+{"docstring":["# Multiplicativity\n\nWe define the `arith_mult` tactic using aesop\n\n"],"imports":[["Init"],["Mathlib","Tactic","ArithMult","Init"]]}

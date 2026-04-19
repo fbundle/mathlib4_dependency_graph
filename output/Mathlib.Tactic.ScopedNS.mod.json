@@ -1,0 +1,1 @@
+{"docstring":["# `scoped[NS]` syntax\n\nThis is a replacement for the `localized` command in mathlib. It is similar to `scoped`,\nbut it scopes the syntax in the specified namespace instead of the current namespace.\n"],"imports":[["Init"],["Mathlib","Util","WithWeakNamespace"]]}

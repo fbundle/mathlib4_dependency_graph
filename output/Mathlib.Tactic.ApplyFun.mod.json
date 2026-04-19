@@ -1,0 +1,1 @@
+{"docstring":["# The `apply_fun` tactic.\n\nApply a function to an equality or inequality in either a local hypothesis or the goal.\n\n## Future work\n\nUsing the `mono` tactic, we can attempt to automatically discharge `Monotone f` goals.\n"],"imports":[["Init"],["Mathlib","Lean","Expr","Basic"],["Mathlib","Order","Hom","Basic"],["Mathlib","Tactic","ToDual"]]}

@@ -1,0 +1,1 @@
+{"docstring":["# Defines the `swap_var` tactic\n\nSwap the names of two hypotheses.\n"],"imports":[["Init"],["Mathlib","Init"]]}

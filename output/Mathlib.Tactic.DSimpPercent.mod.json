@@ -1,0 +1,1 @@
+{"docstring":["`dsimp% […] t` runs `dsimp […]` on term `t`.\nIf `t` is a proof, then it runs `dsimp […]` on the type of `t` instead.\n\nFor instance, instead of\n```\nhave foo := ...\ndsimp at foo\nrw [foo]\n```\none can do `rw [dsimp% foo]`.\n"],"imports":[["Init"],["Mathlib","Init"]]}

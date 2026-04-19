@@ -1,0 +1,1 @@
+{"docstring":["# `recall` command\n"],"imports":[["Init"],["Mathlib","Init"],["Lean","Elab","Command"],["Lean","Elab","DeclUtil"],["Lean","Meta","Tactic","TryThis"],["Lean","PrettyPrinter","Delaborator"]]}

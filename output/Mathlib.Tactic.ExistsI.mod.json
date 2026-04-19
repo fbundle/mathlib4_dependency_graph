@@ -1,0 +1,1 @@
+{"docstring":["# The `existsi` tactic\nThis file defines the `existsi` tactic: its purpose is to instantiate existential quantifiers.\nInternally, it applies the `refine` tactic.\n"],"imports":[["Init"],["Mathlib","Init"]]}

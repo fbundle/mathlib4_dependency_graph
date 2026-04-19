@@ -1,0 +1,1 @@
+{"docstring":["# The `applyWith` tactic\nThe `applyWith` tactic is like `apply`, but allows passing a custom configuration to the underlying\n`apply` operation.\n"],"imports":[["Init"],["Mathlib","Init"],["Lean","Elab","Eval"],["Lean","Elab","Tactic","ElabTerm"],["Lean","Elab","Tactic","Config"]]}
