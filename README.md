@@ -12,6 +12,8 @@ make dependency graph for [mathlib4](https://github.com/leanprover-community/mat
 
 3. Extract dependency graph using `jixia_export.py`
 
+4. Upload to huggingface using `upload_huggingface.py`
+
 ## PREBUILT GRAPH
 
 - [https://huggingface.co/khanh2023/mathlib4_dependency_graph](https://huggingface.co/khanh2023/mathlib4_dependency_graph)
