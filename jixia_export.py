@@ -35,6 +35,7 @@ def main():
     project.batch_run_jixia(
         prefixes=[to_jixia_module(MATHLIB_MODULE)], 
         timeout=300,
+        max_workers=4,
     )
 
 if __name__ == "__main__":
