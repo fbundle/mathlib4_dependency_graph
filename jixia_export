@@ -7,6 +7,7 @@ jixia="$work_dir/jixia/.lake/build/bin/jixia"
 mathlib_dir="$work_dir/mathlib4"
 module="Mathlib"
 
+cp $mathlib_dir/lean-toolchain $jixia_dir/
 
 cd $jixia_dir && lake build
 cd $mathlib_dir && lake build
