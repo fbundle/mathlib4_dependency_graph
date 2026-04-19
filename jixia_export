@@ -7,12 +7,14 @@ jixia="$work_dir/jixia/.lake/build/bin/jixia"
 mathlib_dir="$work_dir/mathlib4"
 module="Mathlib"
 
-# jixia must use the same lean version with mathlib
-cp $mathlib_dir/lean-toolchain $jixia_dir/
-
-cd $jixia_dir && lake build
+# build mathlib first
 cd $mathlib_dir && lake build
 
+# jixia must use the same lean version with mathlib
+cp $mathlib_dir/lean-toolchain $jixia_dir/
+cd $jixia_dir && lake build
+
+# generate graph
 cd $mathlib_dir && lake env $jixia \
 	-d $module.decl.json \
 	-s $module.sym.json \
