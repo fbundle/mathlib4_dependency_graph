@@ -1,6 +1,7 @@
 import concurrent.futures
 import logging
 import os
+import random
 import subprocess
 from concurrent.futures.thread import ThreadPoolExecutor
 from pathlib import Path
@@ -150,6 +151,9 @@ class LeanProject:
         modules = self.find_modules(base_dir)
         if prefixes is not None:
             modules = [m for m in modules if any(is_prefix_of(p, m) for p in prefixes)]
+        
+        random.shuffle(modules) # to get an accurate estimate time
+        
         self.output_dir.mkdir(exist_ok=True)
         output_dir_path = self.output_dir.resolve()
         ret = []
