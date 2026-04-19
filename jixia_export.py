@@ -1,6 +1,8 @@
 import os
 import shutil
 
+import git
+
 import jixia_util as jixia
 from jixia_util.structs import LeanName
 
@@ -12,9 +14,9 @@ OUTPUT_DIR = "output/mathlib4_dependency_graph"
 def to_jixia_module(module: str) -> LeanName:
     return module.split(".")
 
-def get_lean_version(repo_dir: str) -> str:
-    version = open(os.path.join(repo_dir, "lean-toolchain")).read()
-    return version.strip()
+def get_head_commit(repo_dir: str) -> str:
+    repo = git.Repo(repo_dir)
+    return repo.head.commit.hexsha
 
 jixia.run.executable = os.path.abspath(JIXIA)
 
@@ -24,12 +26,11 @@ def main():
         dst=os.path.join(OUTPUT_DIR, "README.md"),
     )
 
-    version = get_lean_version(MATHLIB_DIR)
-    version_number = version.split(":")[-1]
+    commit = get_head_commit(MATHLIB_DIR)
 
     project = jixia.LeanProject(
         root=os.path.abspath(MATHLIB_DIR),
-        output_dir=os.path.abspath(os.path.join(OUTPUT_DIR, f"data_{version_number}")),
+        output_dir=os.path.abspath(os.path.join(OUTPUT_DIR, f"data_{commit}")),
     )
 
     project.batch_run_jixia(
