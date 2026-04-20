@@ -1,0 +1,16 @@
+
+#!/usr/bin/env bash
+
+#PBS -N log_jixia
+#PBS -q normal
+#PBS -j oe
+#PBS -l select=1:ncpus=128:mem=1024gb
+#PBS -l walltime=23:50:00
+
+cd $PBS_O_WORKDIR
+
+
+export HF_HOME="$HOME/scratch/hf_home"
+
+UV="$HOME/miniforge3/envs/test/bin/uv"
+$UV run python jixia_export.py
