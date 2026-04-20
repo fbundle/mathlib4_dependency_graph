@@ -7,6 +7,8 @@
 #PBS -l select=1:ncpus=128:mem=1024gb
 #PBS -l walltime=23:50:00
 
+# submit job with qsub -P <project_id> <this_script>
+
 cd $PBS_O_WORKDIR
 
 
