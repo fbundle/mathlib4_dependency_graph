@@ -10,9 +10,11 @@ make dependency graph for [mathlib4](https://github.com/leanprover-community/mat
 
 2. Use `build` script to build mathlib and jixia
 
-3. Extract dependency graph using `jixia_export.py`
+3. Extract dependency graph by `jixia_export.py`
 
-4. Upload to huggingface using `upload_huggingface.py`
+4. Get symbol file by `get_symbol_file.py`
+
+5. Upload to huggingface using `upload_huggingface.py`
 
 ## PREBUILT GRAPH
 
