@@ -2,6 +2,7 @@ import dbm
 import json
 import os
 import sys
+from typing import Iterator
 
 
 
@@ -10,7 +11,7 @@ from pydantic import BaseModel
 import pydantic_core
 
 
-
+import ijson
 
 from pydantic import BaseModel
 from tqdm import tqdm
@@ -42,6 +43,15 @@ def get_item_key(item: JixiaItem) -> str:
 def get_file_key(name: str) -> str:
     return "file." + name
 
+
+
+def stream_json_list(filename: str) -> Iterator:
+    with open(filename, 'rb') as f:
+        items = ijson.items(f, 'item') # 'item' is the prefix for elements in a root array
+        for item in items:
+            yield item
+
+
 with lmdb.open("cache", map_size=100 * 1024**3) as env: # max 100GB
     with env.begin(write=True) as txn:
         for name in tqdm(list(os.listdir(graph_dir))):
@@ -50,8 +60,7 @@ with lmdb.open("cache", map_size=100 * 1024**3) as env: # max 100GB
                 continue
 
             path = os.path.join(graph_dir, name)
-            o_list = json.load(open(path))
-            for o in o_list:
+            for o in stream_json_list(path):
                 total_count += 1
                 try:
                     i = JixiaItem.model_validate(o)
