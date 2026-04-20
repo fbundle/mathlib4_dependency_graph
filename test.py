@@ -30,29 +30,38 @@ class JixiaItem(BaseModel):
     typeReferences: list[JixiaLeanName]
     valueReferences: list[JixiaLeanName]
 
-def get_dot_name(lean_name: JixiaLeanName) -> str:
-    return ".".join(lean_name)
-
 
 graph_dir = "output/mathlib4_dependency_graph/data_5e932f97dd25535344f80f9dd8da3aab83df0fe6"
-
-name_list = list(os.listdir(graph_dir))
 
 total_count = 0
 error_count = 0
 
+def get_item_key(item: JixiaItem) -> str:
+    return "item." + ".".join(item.name)
+
+def get_file_key(name: str) -> str:
+    return "file." + name
+
 with lmdb.open("cache", map_size=100 * 1024**3) as env: # max 100GB
     with env.begin(write=True) as txn:
-        for name in tqdm(name_list):
+        for name in tqdm(list(os.listdir(graph_dir))):
+            file_key = get_file_key(name)
+            if txn.get(file_key.encode()) is not None:
+                continue
+
             path = os.path.join(graph_dir, name)
             o_list = json.load(open(path))
             for o in o_list:
                 total_count += 1
                 try:
                     i = JixiaItem.model_validate(o)
-                    key = get_dot_name(i.name)
-                    txn.put(key.encode(), i.model_dump_json().encode())
+                    item_key = get_item_key(i)
+                    txn.put(item_key.encode(), i.model_dump_json().encode())
+
                 except pydantic_core._pydantic_core.ValidationError:
                     error_count += 1
+            
+            txn.put(file_key.encode(), b"visited")
+    
 
 print(error_count, total_count)
