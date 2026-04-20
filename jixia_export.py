@@ -21,6 +21,7 @@ def get_head_commit(repo_dir: str) -> str:
 jixia.run.executable = os.path.abspath(JIXIA)
 
 def main():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
     shutil.copyfile(
         src="README.md",
         dst=os.path.join(OUTPUT_DIR, "README.md"),
@@ -36,7 +37,7 @@ def main():
     project.batch_run_jixia(
         prefixes=[to_jixia_module(MATHLIB_MODULE)], 
         timeout=300,
-        max_workers=4,
+        max_workers=8,
     )
 
 if __name__ == "__main__":
