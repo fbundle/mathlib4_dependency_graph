@@ -66,5 +66,6 @@ with lmdb.open("cache", map_size=100 * 1024**3) as env: # max 100GB
                         
                 except pydantic_core._pydantic_core.ValidationError:
                     error_count += 1
+                    print("error ratio:", error_count/total_count)
 
 print(error_count, total_count)
