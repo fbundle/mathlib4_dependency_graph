@@ -73,13 +73,15 @@ def get_file_key(filename: str) -> str:
 
 
 def stream_json_list(filename: str) -> Iterator:
-    with open(filename, 'rb') as f:
-        items = ijson.items(f, 'item') # 'item' is the prefix for elements in a root array
+    with open(filename, "rb") as f:
+        items = ijson.items(f, "item") # "item" is the prefix for elements in a root array
         for item in items:
             yield item
 
 
 filename_list = list(os.listdir(graph_dir))
+filename_list.sort()
+
 
 total_count, error_count = 0, 0
 
