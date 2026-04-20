@@ -221,3 +221,5 @@ __marimo__/
 output
 cache
 *.jsonl
+*.json
+*.lock

@@ -246,6 +246,7 @@ name = "mathlib4-dependency-graph"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "filelock" },
     { name = "gitpython" },
     { name = "huggingface-hub" },
     { name = "ijson" },
@@ -258,6 +259,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "filelock", specifier = ">=3.28.0" },
     { name = "gitpython", specifier = ">=3.1.46" },
     { name = "huggingface-hub", specifier = ">=1.11.0" },
     { name = "ijson", specifier = ">=3.5.0" },

@@ -2,9 +2,7 @@ import json
 import os
 from typing import Any, Iterator
 
-
-
-# import lmdb
+from filelock import FileLock
 from pydantic import BaseModel
 import pydantic_core
 
@@ -16,7 +14,7 @@ from tqdm import tqdm
 
 type JixiaLeanName = list[Any]
 
-class JixiaItem(BaseModel):
+class JixiaSymbol(BaseModel):
     name: JixiaLeanName
     kind: str
     isProp: bool
@@ -28,7 +26,7 @@ class JixiaItem(BaseModel):
     typeReferences: list[JixiaLeanName] | None 
     valueReferences: list[JixiaLeanName] | None
 
-class Item(BaseModel):
+class Symbol(BaseModel):
     name: str
     kind: str
     isProp: bool
@@ -42,19 +40,23 @@ class Item(BaseModel):
 
 
 
-graph_dir = "output/mathlib4_dependency_graph/data_5e932f97dd25535344f80f9dd8da3aab83df0fe6"
+
+
+
+
+
 
 def get_dot_name(name: JixiaLeanName) -> str:
     return ".".join([str(part) for part in name])
 
-def get_item(jtem: JixiaItem) -> Item:
+def get_item(jtem: JixiaSymbol) -> Symbol:
     typeReferences, valueReferences = [], []
     if jtem.typeReferences is not None:
         typeReferences = [get_dot_name(name) for name in jtem.typeReferences]
     if jtem.valueReferences is not None:
         valueReferences = [get_dot_name(name) for name in jtem.valueReferences]
     
-    return Item(
+    return Symbol(
         name=get_dot_name(jtem.name),
         kind=jtem.kind,
         isProp=jtem.isProp,
@@ -65,7 +67,7 @@ def get_item(jtem: JixiaItem) -> Item:
         valueReferences=valueReferences,
     )
 
-def get_item_key(item: Item) -> str:
+def get_item_key(item: Symbol) -> str:
     return "item." + item.name
 
 def get_file_key(filename: str) -> str:
@@ -78,27 +80,37 @@ def stream_json_list(filename: str) -> Iterator:
         for item in items:
             yield item
 
+def process_graph(graph_dir: str, output_path: str, max_workers: int = 10):
+    if os.path.exists(output_path):
+        raise RuntimeError(f"{output_path} exists")
 
-filename_list = list(os.listdir(graph_dir))
-filename_list.sort()
+    def process_file(filename: str):
+        lines: list[str] = []
+        path = os.path.join(graph_dir, filename)
+        for o in stream_json_list(path):
+            try:
+                i = get_item(JixiaSymbol.model_validate(o))
+                line = i.model_dump_json()
+                lines.append(line)
+            except pydantic_core._pydantic_core.ValidationError:
+                pass
+        
+        with FileLock(output_path + ".lock"):
+            with open(output_path, "a") as f:
+                for line in lines:
+                    f.write(line + "\n")
+
+    filename_list = [name for name in os.listdir(graph_dir) if name.endswith(".sym.json")]
+
+    with mp.Pool(max_workers) as pool:  # type: ignore
+        for _ in tqdm(pool.imap_unordered(process_file, filename_list), total=len(filename_list)):
+            pass
 
 
-total_count, error_count = 0, 0
+if __name__ == "__main__":
+    process_graph(
+        graph_dir="output/mathlib4_dependency_graph/data_5e932f97dd25535344f80f9dd8da3aab83df0fe6",
+        output_path="output/mathlib4_dependency_graph/symbol_5e932f97dd25535344f80f9dd8da3aab83df0fe6.jsonl",
+        max_workers=10,
+    )
 
-with open("error.jsonl", "w") as f:
-    with open("items.jsonl", "w") as f1:
-        for filename in tqdm(filename_list):
-            path = os.path.join(graph_dir, filename)
-            for o in stream_json_list(path):
-                total_count += 1
-                try:
-                    i = get_item(JixiaItem.model_validate(o))
-                    f1.write(i.model_dump_json() + "\n")
-                        
-                except pydantic_core._pydantic_core.ValidationError:
-                    error_count += 1
-                    f.write(json.dumps(o) + "\n")
-                    print("error_rate", error_count / total_count)
-                    
-
-print(error_count, total_count)
