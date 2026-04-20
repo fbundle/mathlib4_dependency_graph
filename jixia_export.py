@@ -42,7 +42,7 @@ def main(max_workers: int):
     )
 
 if __name__ == "__main__":
-    max_workers = 8
+    max_workers = 4
     if len(sys.argv) > 1:
         max_workers = int(sys.argv[1])
     main(max_workers)
