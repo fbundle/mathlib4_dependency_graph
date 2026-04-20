@@ -63,7 +63,6 @@ with lmdb.open("cache", map_size=100 * 1024**3) as env: # max 100GB
                     i = JixiaItem.model_validate(o)
                     item_key = get_item_key(i)
                     txn.put(item_key.encode(), i.model_dump_json().encode())
-
                 except pydantic_core._pydantic_core.ValidationError:
                     error_count += 1
             
