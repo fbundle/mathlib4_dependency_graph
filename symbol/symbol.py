@@ -4,7 +4,7 @@ from pydantic import BaseModel
 
 class Symbol(BaseModel):
     name: str
-    kind: str
+    kind: str # Literal['inductive', 'opaque', 'recursor', 'definition', 'constructor', 'theorem']
     isProp: bool
     
     typeFallback: str # always exist

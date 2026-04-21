@@ -1,10 +1,20 @@
 from tqdm import tqdm
-from symbol import SymbolDB
+from symbol import *
 
 
 def main():
     dbpath = "output/mathlib4_dependency_graph/symbol_5e932f97dd25535344f80f9dd8da3aab83df0fe6.db"
     with SymbolDB(dbpath) as kv:
+
+        for sym in kv.__iter__(prefix="AlgebraicGeometry."):
+            if sym.kind == "theorem":
+                s = get_lean_theorem_template(lambda name: kv[name], sym)
+                print(s)
+                return
+
+
+        return 
+
         # print all kinds
         kinds = set()
         for symbol in tqdm(kv, total=len(kv), desc="getting all kinds ..."):
