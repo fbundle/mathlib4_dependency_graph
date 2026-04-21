@@ -224,3 +224,4 @@ cache
 *.json
 *.lock
 *.log/.lake
+test.*
