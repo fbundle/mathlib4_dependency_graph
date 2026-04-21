@@ -31,7 +31,7 @@ class Symbol(BaseModel):
     kind: str
     isProp: bool
     
-    typeFallback: str | None
+    typeFallback: str # always exist
     typeFull: str | None
     typeReadable: str | None
 
@@ -56,6 +56,9 @@ def get_item(jtem: JixiaSymbol) -> Symbol:
     if jtem.valueReferences is not None:
         valueReferences = [get_dot_name(name) for name in jtem.valueReferences]
     
+    if jtem.typeFallback is None:
+        raise RuntimeError("jtem.typeFallback must be non-nil")
+
     return Symbol(
         name=get_dot_name(jtem.name),
         kind=jtem.kind,

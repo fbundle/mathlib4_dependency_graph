@@ -9,7 +9,7 @@ class Symbol(BaseModel):
     kind: str
     isProp: bool
     
-    typeFallback: str | None
+    typeFallback: str # always exist
     typeFull: str | None
     typeReadable: str | None
 
