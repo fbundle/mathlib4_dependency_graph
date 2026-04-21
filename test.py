@@ -8,8 +8,9 @@ def main():
 
         for sym in kv.__iter__(prefix="AlgebraicGeometry."):
             if sym.kind == "theorem":
-                s = get_lean_theorem_template(lambda name: kv[name], sym)
+                s = get_lean_theorem_template(lambda name: kv.__getitem__(name, default=None), sym)
                 print(s)
+                # print(sym.model_dump_json())
                 return
 
 

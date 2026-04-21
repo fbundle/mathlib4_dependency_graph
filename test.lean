@@ -1,13 +1,17 @@
-variable (AlgebraicGeometry.AffineScheme : Type.{succ u_1})
-variable (AlgebraicGeometry.instCategoryAffineScheme : CategoryTheory.Category.{u_1, succ u_1} AlgebraicGeometry.AffineScheme.{u_1})
-variable (AlgebraicGeometry.Scheme.instCategory : CategoryTheory.Category.{u_1, succ u_1} AlgebraicGeometry.Scheme.{u_1})
-variable (Opposite : Sort.{u} -> Sort.{max 1 u})
-variable (CategoryTheory.Functor.EssSurj.toEssImage : forall {C : Type.{u₁}} {D : Type.{u₂}} [inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.5 : CategoryTheory.Category.{v₁, u₁} C] [inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.8 : CategoryTheory.Category.{v₂, u₂} D] {F : CategoryTheory.Functor.{v₁, v₂, u₁, u₂} C inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.5 D inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.8}, CategoryTheory.Functor.EssSurj.{v₁, v₂, u₁, u₂} C (CategoryTheory.Functor.EssImageSubcategory.{v₁, v₂, u₁, u₂} C D inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.5 inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.8 F) inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.5 (CategoryTheory.ObjectProperty.FullSubcategory.category.{v₂, u₂} D inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.8 (CategoryTheory.Functor.essImage.{v₁, v₂, u₁, u₂} C D inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.5 inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.8 F)) (CategoryTheory.Functor.toEssImage.{v₁, v₂, u₁, u₂} C D inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.5 inst._@.Mathlib.CategoryTheory.EssentialImage.3103276335._hygCtx._hyg.8 F))
-variable (AlgebraicGeometry.AffineScheme.Spec : CategoryTheory.Functor.{u_1, u_1, succ u_1, succ u_1} (Opposite.{succ (succ u_1)} CommRingCat.{u_1}) (CategoryTheory.Category.opposite.{u_1, succ u_1} CommRingCat.{u_1} CommRingCat.instCategory.{u_1}) AlgebraicGeometry.AffineScheme.{u_1} AlgebraicGeometry.instCategoryAffineScheme.{u_1})
-variable (CommRingCat.instCategory : CategoryTheory.Category.{u_1, succ u_1} CommRingCat.{u_1})
-variable (CommRingCat : Type.{succ u})
-variable (AlgebraicGeometry.Scheme : Type.{succ u_1})
-variable (AlgebraicGeometry.Scheme.Spec : CategoryTheory.Functor.{u_1, u_1, succ u_1, succ u_1} (Opposite.{succ (succ u_1)} CommRingCat.{u_1}) (CategoryTheory.Category.opposite.{u_1, succ u_1} CommRingCat.{u_1} CommRingCat.instCategory.{u_1}) AlgebraicGeometry.Scheme.{u_1} AlgebraicGeometry.Scheme.instCategory.{u_1})
-variable (CategoryTheory.Category.opposite : forall {C : Type.{u₁}} [inst._@.Mathlib.CategoryTheory.Opposites.1368371788._hygCtx._hyg.3 : CategoryTheory.Category.{v₁, u₁} C], CategoryTheory.Category.{v₁, u₁} (Opposite.{succ u₁} C))
-variable (CategoryTheory.Functor.EssSurj : forall {C : Type.{u₁}} {D : Type.{u₂}} [inst._@.Mathlib.CategoryTheory.EssentialImage.4161030207._hygCtx._hyg.27 : CategoryTheory.Category.{v₁, u₁} C] [inst._@.Mathlib.CategoryTheory.EssentialImage.4161030207._hygCtx._hyg.30 : CategoryTheory.Category.{v₂, u₂} D], (CategoryTheory.Functor.{v₁, v₂, u₁, u₂} C inst._@.Mathlib.CategoryTheory.EssentialImage.4161030207._hygCtx._hyg.27 D inst._@.Mathlib.CategoryTheory.EssentialImage.4161030207._hygCtx._hyg.30) -> Prop)
-def AlgebraicGeometry.AffineScheme.Spec_essSurj : CategoryTheory.Functor.EssSurj.{u_1, u_1, succ u_1, succ u_1} (Opposite.{succ (succ u_1)} CommRingCat.{u_1}) AlgebraicGeometry.AffineScheme.{u_1} (CategoryTheory.Category.opposite.{u_1, succ u_1} CommRingCat.{u_1} CommRingCat.instCategory.{u_1}) AlgebraicGeometry.instCategoryAffineScheme.{u_1} AlgebraicGeometry.AffineScheme.Spec.{u_1} := sorry
+variable (CommRingCat : Type (u + 1))
+variable (Opposite : Sort u → Sort (max 1 u))
+variable (AlgebraicGeometry_dot_Scheme_dot_instCategory : CategoryTheory_dot_Category.{u_1, u_1 + 1} AlgebraicGeometry_dot_Scheme)
+variable (AlgebraicGeometry_dot_Scheme_dot_Spec : CategoryTheory_dot_Functor CommRingCatᵒᵖ AlgebraicGeometry_dot_Scheme)
+variable (CategoryTheory_dot_Functor_dot_EssSurj_dot_toEssImage : ∀ {C : Type u₁} {D : Type u₂} [inst : CategoryTheory_dot_Category.{v₁, u₁} C] [inst_1 : CategoryTheory_dot_Category.{v₂, u₂} D]
+  {F : CategoryTheory_dot_Functor C D}, F_dot_toEssImage_dot_EssSurj)
+variable (AlgebraicGeometry_dot_instCategoryAffineScheme : CategoryTheory_dot_Category.{u_1, u_1 + 1} AlgebraicGeometry_dot_AffineScheme)
+variable (AlgebraicGeometry_dot_Scheme : Type (u_1 + 1))
+variable (CategoryTheory_dot_Functor_dot_EssSurj : {C : Type u₁} →
+  {D : Type u₂} →
+    [inst : CategoryTheory_dot_Category.{v₁, u₁} C] →
+      [inst_1 : CategoryTheory_dot_Category.{v₂, u₂} D] → CategoryTheory_dot_Functor C D → Prop)
+variable (AlgebraicGeometry_dot_AffineScheme : Type (u_1 + 1))
+variable (CategoryTheory_dot_Category_dot_opposite : {C : Type u₁} → [CategoryTheory_dot_Category.{v₁, u₁} C] → CategoryTheory_dot_Category.{v₁, u₁} Cᵒᵖ)
+variable (CommRingCat_dot_instCategory : CategoryTheory_dot_Category.{u_1, u_1 + 1} CommRingCat)
+variable (AlgebraicGeometry_dot_AffineScheme_dot_Spec : CategoryTheory_dot_Functor CommRingCatᵒᵖ AlgebraicGeometry_dot_AffineScheme)
+def AlgebraicGeometry_dot_AffineScheme_dot_Spec_essSurj : AlgebraicGeometry_dot_AffineScheme_dot_Spec_dot_EssSurj := sorry
