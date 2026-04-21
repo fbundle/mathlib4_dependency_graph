@@ -10,7 +10,7 @@ class Symbol(BaseModel):
     kind: str
     isProp: bool
     
-    typeFallback: str | None
+    typeFallback: str # always exist
     typeFull: str | None
     typeReadable: str | None
 
@@ -19,12 +19,12 @@ class Symbol(BaseModel):
 
 ENCODING = "utf-8"
 
-class SymbolKV:
+class SymbolDB:
     def __init__(self, symbol_dbpath: str):
         self.symbol_dbpath = symbol_dbpath
         self.env = None
     
-    def __enter__(self) -> SymbolKV:
+    def __enter__(self) -> SymbolDB:
         self.env = lmdb.open(self.symbol_dbpath, readonly=True)
         return self
     
@@ -59,7 +59,7 @@ def main():
     typeFull_always_exist = True
     typeReadable_always_exist = True
 
-    with SymbolKV(dbpath) as kv:
+    with SymbolDB(dbpath) as kv:
         for s in tqdm(kv.__iter__(), total=len(kv)):
             if typeFallback_always_exist:
                 if s.typeFallback is None:
