@@ -14,7 +14,7 @@ how to make your own mathlib4 graph
 
 3. Extract dependency graph by `jixia_export.py`
 
-4. Get symbol file by `get_symbol_file.py`
+4. Get symbol file by `get_symbol_file.py` and `get_symbol_db.py`
 
 5. Upload to huggingface using `upload_huggingface.py`
 
