@@ -1,20 +1,7 @@
-from pydantic import BaseModel
-
 import lmdb
 from tqdm import tqdm
 
-
-class Symbol(BaseModel):
-    name: str
-    kind: str
-    isProp: bool
-    
-    typeFallback: str # always exist
-    typeFull: str | None
-    typeReadable: str | None
-
-    typeReferences: list[str]
-    valueReferences: list[str]
+from symbol import Symbol
 
 MAP_SIZE = 100 * 1024 * 1024 * 1024 # 100 GB
 

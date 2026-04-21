@@ -1,0 +1,7 @@
+name = "mathlib4-dependency-graph"
+version = "0.1.0"
+defaultTargets = ["mathlib4-dependency-graph"]
+
+[[lean_exe]]
+name = "test.lean"
+root = "test"

@@ -1,21 +1,8 @@
 from __future__ import annotations
-from typing import Iterator
+from typing import Any, Iterator
 
 import lmdb
-from pydantic import BaseModel
-from tqdm import tqdm
-
-class Symbol(BaseModel):
-    name: str
-    kind: str
-    isProp: bool
-    
-    typeFallback: str # always exist
-    typeFull: str | None
-    typeReadable: str | None
-
-    typeReferences: list[str]
-    valueReferences: list[str]
+from .symbol import Symbol
 
 ENCODING = "utf-8"
 
@@ -35,9 +22,15 @@ class SymbolDB:
         self.env.close()
         self.env = None
 
-    def __getitem__(self, name: str) -> Symbol:
-        symbol: bytes = self.txn.get(name.encode(ENCODING))
+    def __getitem__(self, name: str, default: Any = None) -> Symbol:
+        symbol: bytes | None = self.txn.get(name.encode(ENCODING))
+        if symbol is None:
+            return default
         return Symbol.model_validate_json(symbol)
+
+    def __contains__(self, name: str) -> bool:
+        symbol: bytes | None = self.txn.get(name.encode(ENCODING))
+        return symbol is not None
     
     def __len__(self) -> int:
         return self.env.stat()["entries"]
@@ -52,10 +45,3 @@ class SymbolDB:
             val_str = val.decode(ENCODING)
             symbol = Symbol.model_validate_json(val_str)
             yield symbol
-
-def main():
-    dbpath = "output/mathlib4_dependency_graph/symbol_5e932f97dd25535344f80f9dd8da3aab83df0fe6.db"
-
-
-if __name__ == "__main__":
-    main()

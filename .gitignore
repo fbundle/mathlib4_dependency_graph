@@ -223,3 +223,4 @@ cache
 *.jsonl
 *.json
 *.lock
+*.log/.lake
