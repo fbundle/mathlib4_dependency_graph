@@ -56,26 +56,6 @@ class SymbolDB:
 def main():
     dbpath = "output/mathlib4_dependency_graph/symbol_5e932f97dd25535344f80f9dd8da3aab83df0fe6.db"
 
-    typeFallback_always_exist = True
-    typeFull_always_exist = True
-    typeReadable_always_exist = True
-
-    with SymbolDB(dbpath) as kv:
-        for s in tqdm(kv.__iter__(), total=len(kv)):
-            if typeFallback_always_exist:
-                if s.typeFallback is None:
-                    typeFallback_always_exist = False
-            if typeFull_always_exist:
-                if s.typeFull is None:
-                    typeFull_always_exist = False
-            if typeReadable_always_exist:
-                if s.typeReadable is None:
-                    typeReadable_always_exist = False
-            
-            if typeFallback_always_exist == False and typeFull_always_exist == False and typeReadable_always_exist == False:
-                break
-    
-    print(typeFallback_always_exist, typeFull_always_exist, typeReadable_always_exist)
 
 if __name__ == "__main__":
     main()
