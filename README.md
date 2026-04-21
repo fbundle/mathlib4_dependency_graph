@@ -4,6 +4,8 @@ make dependency graph for [mathlib4](https://github.com/leanprover-community/mat
 
 ## HOW TO
 
+how to make your own mathlib4 graph
+
 0. Clone the repository at [https://github.com/fbundle/mathlib4_dependency_graph](https://github.com/fbundle/mathlib4_dependency_graph)
 
 1. Check out your favorite mathlib version
@@ -13,6 +15,10 @@ make dependency graph for [mathlib4](https://github.com/leanprover-community/mat
 3. Extract dependency graph using `jixia_export.py`
 
 4. Upload to huggingface using `upload_huggingface.py`
+
+
+
+or just download the prebuilt files using `download_huggingface.py`
 
 ## PREBUILT GRAPH
 
