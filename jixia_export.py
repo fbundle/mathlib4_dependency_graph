@@ -37,6 +37,7 @@ def main(max_workers: int):
 
     project.batch_run_jixia(
         prefixes=[to_jixia_module(MATHLIB_MODULE)], 
+        plugins=["symbol"], # only symbol file
         timeout=600,
         max_workers=max_workers,
     )

@@ -3,8 +3,12 @@ name = "mathlib4-dependency-graph"
 version = "0.1.0"
 requires-python = "==3.12.*"
 dependencies = [
+    "filelock>=3.28.0",
     "gitpython>=3.1.46",
     "huggingface-hub>=1.11.0",
+    "ijson>=3.5.0",
+    "lmdb>=2.2.0",
+    "multiprocess>=0.70.19",
     "pydantic>=2.13.2",
     "python-dotenv>=1.2.2",
     "tqdm>=4.67.3",

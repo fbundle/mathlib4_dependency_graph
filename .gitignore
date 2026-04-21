@@ -219,3 +219,7 @@ __marimo__/
 # user-defined
 .vscode
 output
+cache
+*.jsonl
+*.json
+*.lock
