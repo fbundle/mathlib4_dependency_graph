@@ -1,12 +1,13 @@
 import os
-import sys
 
-from huggingface_hub import login, upload_large_folder
+from huggingface_hub import snapshot_download
 from dotenv import load_dotenv
+
+
 
 OUTPUT_DIR = "output/mathlib4_dependency_graph"
 
-def upload(output_dir: str):
+def download(output_dir: str):
     output_dir = os.path.abspath(output_dir)
 
     load_dotenv()
@@ -16,13 +17,12 @@ def upload(output_dir: str):
 
     repo_id = hf_user + "/" + os.path.basename(output_dir)
 
-    login()
-    upload_large_folder(
-        folder_path=output_dir,
+    snapshot_download(
+        local_dir=output_dir,
         repo_id=repo_id,
         repo_type="dataset",
     )
 
 
 if __name__ == "__main__":
-    upload(OUTPUT_DIR)
+    download(OUTPUT_DIR)
